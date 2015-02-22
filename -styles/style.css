@@ -1,0 +1,329 @@
+body {
+	background-color: black;
+	background-image: url('/static/patterns/stars.gif');
+	color: {% foreground %};
+	font-family: 'Roboto', sans-serif;
+	font-size: 14pt;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'MegaMan 2 Regular', serif;
+	font-weight: 400;
+	text-align: center;
+	color: {% accent %};
+	margin: 0;
+	padding: 1ex 0;
+}
+
+.opaque h1,
+.opaque h2,
+.opaque h3,
+.opaque h4,
+.opaque .subtitle {	
+	color: {% foreground %};
+}
+
+a {
+	color: lime;
+}
+
+h1 { font-size: 24pt; } h2 { font-size: 18pt; } h3 {font-size: 12pt;} h4 {font-size: 12pt;}
+
+p, form, table, .blok, .regel, ul {
+	max-width: 60em;
+	margin: 0 1cm 4ex 1cm;
+	padding: 0;
+}
+
+.drop {
+	position: fixed;
+	right: 0;
+	top: 0;
+	min-height: 100%;	
+	width: 100%;	
+}
+
+.agree input {
+	width: auto;
+}
+
+.agree .error {
+	float: none;
+	color: lime;
+}
+
+.flat.drop {
+	background-image: url('/static/patterns/flag.gif');
+	background-repeat: repeat-y;
+	background-position: right;
+}
+
+.sky.drop {	
+	background-image: url('/static/patterns/skyline.gif');
+	background-attachment: fixed;
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+
+.region {
+	position: relative;
+	padding-bottom: 4ex;
+}
+
+.region + .region {
+	padding-top: 4ex;
+}
+
+.region + .opaque.region {
+	padding-top: 5ex;
+}
+
+.half img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	padding: 4ex 0;
+}
+
+.region>*:not(div) {
+	position: relative;
+	z-index: 10;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1cm;
+	padding-right: 1cm;
+}
+
+
+
+.footer.region {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	margin-top: 8ex;
+}
+
+.head ~ .footer.region {
+	top: 0;
+}
+
+.head p.subtitle { 
+	position: relative;
+	top: 4.5ex;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+p.subtitle {
+	font-family: 'MegaMan 2 Regular', serif;
+	padding-top: 3ex;
+	margin-bottom: 1ex;
+}
+
+.head p.subtitle {	
+	padding-top: 0;
+}
+
+.head p.subtitle a {
+	text-decoration: none;
+	color: lime;
+}
+
+.region ul {
+	list-style-type: none;
+}
+
+.region ul li:before {
+	content: '╭─ ';
+}
+
+.region ul li + li:before {
+	content: '├─ ';	
+}
+
+.region ul li:last-child:before {
+	content: '╰─ ';
+}
+
+.region .backdrop {
+	position: absolute;
+	z-index: 0;
+	right: 0;
+	opacity: 0.5;
+	padding: 0;
+}
+
+.region .logo {
+	width: 70%;
+	padding: 0 15% 0;
+	position: relative;
+	top: 10ex;
+}
+
+.head ~ .region {
+	top: -5ex;
+	padding-top: 2ex;
+}
+
+.opaque.region {
+	background: rgba(0,0,0,0.9);
+
+}
+
+.half {
+	float: left;
+	width: 50%;
+}
+
+.region:after {
+	content: '.';
+	font-size: 0;
+	display: block;
+	clear: both;
+}
+
+.reverse.half {
+	float: right;
+}
+
+table {
+	border-style: solid;
+}
+
+.currency {
+	text-align: right;
+}
+
+.regel  {
+	display: block;
+	max-width: 60em;
+	margin: 4ex auto 0;
+	text-align: center;
+}
+
+.regel + .regel {
+	margin-top: 0;
+}
+
+label {
+	display: block;
+}
+
+input, textarea {
+	display: inline;
+	width: 60%;
+	font-size: 14pt;
+	background: black;
+	color: #0ff;
+	border: solid 5px #055;
+	padding: 5px;
+}
+
+input:hover {
+	border: solid 5px #099;
+}
+
+input:focus {
+	border: solid 5px #0ff;
+}
+
+.goahead {
+	clear: both;
+
+	padding-top: 4ex;
+}
+
+.goahead .option {
+	margin-top: 4ex;
+}
+
+.goahead input:not(.option) {
+	width: auto;
+}
+
+.product input.option {
+	background: none;
+	border: solid 1px {% accent %};
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: relative;
+	z-index: 20;
+}
+
+.product input.option:hover {
+	background: rgba(0,255,255,0.2);
+	animation: glow 0.1s;
+}
+
+@keyframes glow {
+	from { background: none; }
+	to { background: rgba(0,255,255,0.2); }
+}
+
+.product {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.product + .product input.option {
+	border-top: 0;
+}
+
+.option {
+	width: calc(100% - 20px);
+}
+
+.submit {
+	width: 30%;
+	margin: 10px auto;
+	float: right;
+}
+
+.error {
+	float: right;
+	padding: 10px 0;
+}
+
+.subtitle {
+	font-size: 130%;
+	text-align: center;
+	color: {% accent %};
+}
+
+.subtitle a {
+	color: #0f0;
+	animation: pulse 0.9s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+	0% { color: #0ff; }
+	50% { color: #0f0;}
+	100% { color: #0ff; }
+}
+
+.navigation {
+	position: fixed;
+	text-align: right;
+	line-height: 200%;
+	z-index: 20;
+	left: 0;
+	right: 0;
+}
+
+.navigation a {
+	color: {% accent %};
+	padding: 0 1em;
+	text-decoration: none;
+	color: {% accent %};
+}
+
+.navigation a:hover {
+	text-decoration: underline;	
+}
+
+.navigation a.logo {
+	float: left;
+	font-weight: bold;
+}

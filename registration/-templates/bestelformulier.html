@@ -1,0 +1,34 @@
+</div>
+<div class="opaque region">
+	<h2>Perks and options</h2>
+	<p>
+		The bare attendance fee for this event may be up to &euro;10,-. Please note
+		that - unlike what you may be used to from Cover LANs - this does not 
+		include dinner.
+	</p>
+	<p>
+		You may order food independently or take your own, but representatives of
+		each study association will be ordering food too. It's likely they've discounts.
+		You are free to join them.
+	</p>
+	<p>
+		You may optionally order computer transport service for an added fee of &euro;
+		5,-. We will only transport your computer and related peripherals. Transport
+		service can't be held liable for damage to your equipment.
+	</p>
+	<span class="regel">
+		<div class="reverse half">
+			<h2 id="selected">Selected</h2>
+			<h3>Click to remove</h3>
+			{% selected %}
+		</div>
+		<div class="reverse half">
+			<h2 id="available">Available</h2>
+			{% next %}
+		</div>
+		<form method="post" action="/register/seal" class="goahead">
+			<input class="option" type="submit" name="seal"
+			value="Seal perks and options &raquo;">
+		</form>	
+	</span>	
+</div>

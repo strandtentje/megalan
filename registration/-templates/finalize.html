@@ -1,0 +1,37 @@
+</div>
+<div class="opaque region">
+	<h2>Payment and remarks</h2>
+	<p>
+		Please fill in your bank details so we can swiften the process of
+		producing your direct debit form at the event.
+	</p>
+	<p>
+		Dietary, logistic or other remarks may be left on this form.
+	</p>
+	<form method="post" action="/register">
+		<label for="tnv">Name account owner:</label>
+		<input type="text" name="tnv" id="tnv" value="{% tnv %}">
+		{% tnv_failure %}
+
+		<label for="nummer">
+			Account number:
+		</label>
+		<input type="text" name="nummer" id="nummer" value="{% nummer %}">
+		{% nummer_failure %}
+
+		<label for="plaats">Account city (optional):</label>			
+		<input type="text" name="plaats" id="plaats" value="{% plaats %}">
+		{% plaats_failure %}
+
+		<label for="opmerking">Remarks:</label>
+		<textarea name="opmerking" cols="80" rows="4">{% opmerking %}</textarea>
+		{% opmerking_failure %}
+
+		<label for="agree" class="agree">
+			<input type="checkbox" name="agree" id="agree">
+			I agree with the rules and regulations 
+			{% agree_failure %}
+		</label>
+		<input class="option" type="submit" value="Confirm registration &raquo;">
+	</form>	
+</div>

@@ -1,0 +1,25 @@
+</div>
+<div class="opaque region">
+	<h1>Address information</h1>
+	<form method="post" action="/register">
+		<label for="straat">Street:</label>
+		<input type="text" name="straat" id="straat" value="{% straat %}">
+		{% straat_failure %}
+
+		<label for="pandnummer">
+			Number:
+		</label>
+		<input type="text" name="pandnummer" id="pandnummer" value="{% pandnummer %}">
+		{% pandnummer_failure %}
+
+		<label for="postcode">Postal code:</label>			
+		<input type="text" name="postcode" id="postcode" value="{% postcode %}">
+		{% postcode_failure %}
+
+		<label for="stad">City:</label>
+		<input type="stad" name="stad" id="stad" value="{% stad %}">
+		{% stad_failure %}
+
+		<input type="submit" class="submit" value="Yes! &raquo;">
+	</form>
+</div>

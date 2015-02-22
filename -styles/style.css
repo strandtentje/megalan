@@ -3,7 +3,7 @@ body {
 	background-image: url('/static/patterns/stars.gif');
 	color: {% foreground %};
 	font-family: 'Roboto', sans-serif;
-	font-size: 14pt;
+	font-size: 15pt;
 	margin: 0;
 	padding: 0;
 }
@@ -115,6 +115,10 @@ p, form, table, .blok, .regel, ul {
 	margin-bottom: 0;
 }
 
+h2 + p.subtitle {
+	padding-top: 0;
+}
+
 p.subtitle {
 	font-family: 'MegaMan 2 Regular', serif;
 	padding-top: 3ex;
@@ -134,16 +138,16 @@ p.subtitle {
 	list-style-type: none;
 }
 
+.region ul li {
+	line-height: 150%;
+	vertical-align: middle;
+}
+
 .region ul li:before {
-	content: '╭─ ';
-}
-
-.region ul li + li:before {
-	content: '├─ ';	
-}
-
-.region ul li:last-child:before {
-	content: '╰─ ';
+	vertical-align: bottom;
+	font-family: 'MegaMan 2 Regular', serif;
+	content: '> ';
+	color: red;
 }
 
 .region .backdrop {

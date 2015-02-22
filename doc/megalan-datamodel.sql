@@ -29,7 +29,7 @@ CREATE TABLE `Adres` (
   `postcode` varchar(45) DEFAULT NULL,
   `stad` varchar(145) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `Bestelling` (
   KEY `bestellingproduct_idx` (`product`),
   CONSTRAINT `bestellingdeelnemer` FOREIGN KEY (`deelnemer`) REFERENCES `Deelnemer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `bestellingproduct` FOREIGN KEY (`product`) REFERENCES `Product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `Deelnemer` (
   CONSTRAINT `deelnemeradres` FOREIGN KEY (`adres`) REFERENCES `Adres` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `deelnemerpersoon` FOREIGN KEY (`persoon`) REFERENCES `Persoon` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `deelnemerrekening` FOREIGN KEY (`rekening`) REFERENCES `Rekening` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `Persoon` (
   `achternaam` varchar(145) DEFAULT NULL,
   `email` varchar(145) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,7 +208,7 @@ CREATE TABLE `Rekening` (
   `plaats` varchar(145) DEFAULT NULL,
   `nummer` varchar(145) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,9 +231,9 @@ DROP TABLE IF EXISTS `Sessie`;
 CREATE TABLE `Sessie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `taalcode` varchar(45) DEFAULT NULL,
-  `cookie` varchar(512) DEFAULT NULL,
+  `cookie` varchar(4000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +242,6 @@ CREATE TABLE `Sessie` (
 
 LOCK TABLES `Sessie` WRITE;
 /*!40000 ALTER TABLE `Sessie` DISABLE KEYS */;
-INSERT INTO `Sessie` VALUES (12,'en','6l/NZt3C5Emy05nRn2O63Q==');
 /*!40000 ALTER TABLE `Sessie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +268,7 @@ CREATE TABLE `Vertaling` (
 
 LOCK TABLES `Vertaling` WRITE;
 /*!40000 ALTER TABLE `Vertaling` DISABLE KEYS */;
-INSERT INTO `Vertaling` VALUES (1,1,'FMF','nl'),(2,2,'CB','nl'),(3,3,'IDUN','nl'),(4,4,'Cover','nl'),(5,5,'Vrijdag','nl'),(6,6,'Zaterdag','nl'),(7,7,'Zondag','nl'),(8,8,'Vervoersservice','nl'),(9,9,'PC','nl'),(10,10,'Extra PC','nl'),(11,11,'Gigabit Dibbs','nl'),(16,1,'FMF','en'),(17,2,'CB','en'),(18,3,'IDUN','en'),(19,4,'Cover','en'),(20,5,'Friday','en'),(21,6,'Saturday','en'),(22,7,'Sunday','en'),(23,8,'Computer Transport Service','en'),(24,9,'Computer','en'),(25,10,'Additional Computer','en'),(26,11,'Dibbs on Gigabit connection','en'),(31,12,'Lid van...','nl'),(32,12,'Member of...','en'),(33,13,'Aanwezig op...','nl'),(34,13,'Present on...','en'),(35,14,'Logistiek','nl'),(36,14,'Transportation and placement','en'),(37,15,'Laptop','nl'),(38,15,'Laptop','en'),(39,16,'Server','nl'),(40,16,'Server','en'),(41,17,'Gaming console and Television','en'),(42,17,'Spelcomputer en TV','nl'),(43,18,'Hardware','nl'),(44,18,'Hardware','en');
+INSERT INTO `Vertaling` VALUES (1,1,'FMF','nl'),(2,2,'CB','nl'),(3,3,'IDUN','nl'),(4,4,'Cover','nl'),(5,5,'Vrijdag','nl'),(6,6,'Zaterdag','nl'),(7,7,'Zondag','nl'),(8,8,'Vervoersservice','nl'),(9,9,'PC','nl'),(10,10,'Extra PC','nl'),(11,11,'Gigabit Dibbs','nl'),(16,1,'FMF','en'),(17,2,'CB','en'),(18,3,'IDUN','en'),(19,4,'Cover','en'),(20,5,'Friday','en'),(21,6,'Saturday','en'),(22,7,'Sunday','en'),(23,8,'PC Transport','en'),(24,9,'Computer','en'),(25,10,'Additional Computer','en'),(26,11,'Dibbs on Gigabit network','en'),(31,12,'Lid van','nl'),(32,12,'Member of','en'),(33,13,'Aanwezig op','nl'),(34,13,'Present on','en'),(35,14,'Logistiek:','nl'),(36,14,'Logistics:','en'),(37,15,'Laptop','nl'),(38,15,'Laptop','en'),(39,16,'Server','nl'),(40,16,'Server','en'),(41,17,'Console and TV','en'),(42,17,'Spelcomputer en TV','nl'),(43,18,'Hardware:','nl'),(44,18,'Hardware:','en');
 /*!40000 ALTER TABLE `Vertaling` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -282,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-22 12:42:02
+-- Dump completed on 2015-02-22 19:13:19

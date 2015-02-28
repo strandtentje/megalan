@@ -1,0 +1,24 @@
+Hi {% voornaam %}{% tussenvoegsel %}{% achternaam %},
+
+You've signed up for the MegaLAN. We've registered the
+following information, please check for errors and notify
+us in a timely fashion if something isn't correct:
+
+╔═ Address ═══════╾┈
+║ {% straat %} {% pandnummer %}
+║ {% postcode %} {% stad %}
+╚════════╾┈
+
+╔═ Bank account ═════╾┈
+║ '{% nummer %}' tnv '{% tnv %}' te '{% plaats %}'
+╚════════╾┈
+
+╔═ Perks and options ═════╾┈
+{% bestellingen %}╚════════╾┈
+
+╔═ Remarks ═════╾┈
+║ "{% opmerking %}"
+╚════════╾┈
+
+Kind regards,
+MegaLAN organizing committees

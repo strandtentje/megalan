@@ -1,7 +1,11 @@
 SELECT
 	Deelnemer.persoon persoon,
 	Persoon.voornaam voornaam,
-	Persoon.tussenvoegsel tussenvoegsel,
+	IF(
+		LENGTH(TRIM(Persoon.tussenvoegsel)) = 0, 
+		' ', 
+		CONCAT(' ', Persoon.tussenvoegsel, ' ')
+		) tussenvoegsel,
 	Persoon.achternaam achternaam,
 	Persoon.email email
 FROM

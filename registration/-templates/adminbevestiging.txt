@@ -1,0 +1,4 @@
+Er is naar deelnemer {% participant.to %} een e-mail 
+verstuurd waarin hun bestelling is bevestigd:
+
+{% participant %}

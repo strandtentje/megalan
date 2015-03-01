@@ -26,9 +26,8 @@
 		<input type="text" name="plaats" id="plaats" value="{% plaats %}">
 		{% plaats_failure %}
 
-		<label for="opmerking">Remarks:</label>
+		<label for="opmerking">Remarks (max. 140 characters):</label>
 		<textarea name="opmerking" cols="80" rows="4">{% opmerking %}</textarea>
-		{% opmerking_failure %}
 
 		<label for="agree" class="agree">
 			<input type="checkbox" name="agree" id="agree">

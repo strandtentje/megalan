@@ -118,8 +118,8 @@ p, form, table, .blok, .regel, ul {
 .region>*:not(div) {
 	position: relative;
 	z-index: 10;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 8px;
+	margin-right: 8px;
 }
 
 @media (min-width: 900px) {
@@ -280,7 +280,10 @@ input, textarea {
 	padding: 5px;
 }
 
-.error {
+input#agree { display: inline; margin-left: 1em; }
+
+
+input:not(#agree) + .error {
 	position: relative;
 	top: -7ex;
 }

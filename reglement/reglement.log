@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.31)  1 MAR 2015 20:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.1.31)  1 MAR 2015 23:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -130,7 +130,7 @@ Here is how much of TeX's memory you used:
 ts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
 pfb>
-Output written on reglement.pdf (3 pages, 58090 bytes).
+Output written on reglement.pdf (3 pages, 58099 bytes).
 PDF statistics:
  26 PDF objects out of 1000 (max. 8388607)
  17 compressed objects within 1 object stream

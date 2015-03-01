@@ -203,18 +203,26 @@ p.subtitle {
 
 }
 
+.half img {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;	
+	display: block;
+	padding: 4ex 0;
+
+}
+
 @media(min-width: 900px) {
 	.half {
 		float: left;
 		width: 50%;
 	}
-}
 
-.half img {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-	padding: 4ex 0;
+	.half img {
+		margin-left: auto;
+		margin-right: auto;
+		width: auto;
+	}
 }
 
 .region:after {

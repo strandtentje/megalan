@@ -9,7 +9,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-	font-family: 'MegaMan 2 Regular', serif;
+	font-family: 'MegaMan 2 Regular', sans-serif;
 	font-weight: 400;
 	text-align: center;
 	color: {% accent %};
@@ -27,7 +27,7 @@ h1, h2, h3, h4 {
 
 .region .epicbutton:not(div) {
 	background: url('/static/patterns/redbutton.png');
-	font-family: 'MegaMan 2 Regular', serif;
+	font-family: 'MegaMan 2 Regular', sans-serif;
 	font-size: 24px;
 	width: 320px;
 	height: 96px;
@@ -396,8 +396,14 @@ input:focus {
 	margin-left: auto;
 	margin-right: auto;
 	border-bottom: solid 3px #5c5c5c;	
-	width: 100%;
+	width: 180px;
 	background: url('/static/patterns/flufflybar.png');
+}
+
+@media (min-width: 360px) {
+	.navigation {
+		width: 360px;
+	}
 }
 
 .navigation:after {

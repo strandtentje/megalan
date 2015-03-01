@@ -282,8 +282,9 @@ input, textarea {
 
 input#agree { display: inline; margin-left: 1em; }
 
-
 input:not(#agree) + .error {
+	float: right;
+	padding: 10px 0;
 	position: relative;
 	top: -7ex;
 }
@@ -295,6 +296,10 @@ input:not(#agree) + .error {
 	}
 
 	.error {
+		top: 0;
+	}
+
+	input:not(#agree) + .error {		
 		top: 0;
 	}
 }
@@ -363,11 +368,6 @@ input:focus {
 	width: 30%;
 	margin: 10px auto;
 	float: right;
-}
-
-.error {
-	float: right;
-	padding: 10px 0;
 }
 
 .subtitle {

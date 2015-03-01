@@ -288,6 +288,7 @@ input, textarea {
 @media(min-width: 900px) {
 	input, textarea {
 		width: 60%;
+		display: inline;
 	}
 
 	.error {

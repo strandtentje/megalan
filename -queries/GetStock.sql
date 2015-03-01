@@ -26,4 +26,6 @@ WHERE
 	Vertaling.taalcode = "en" AND 
 	Product.categorie = 1
 GROUP BY
-	Product.id;
+	Product.id
+ORDER BY
+	Vertaling.inhoud;

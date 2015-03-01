@@ -232,6 +232,10 @@ a img {
 		margin-right: auto;
 		width: auto;
 	}
+
+	.reverse.half {
+		float: right;
+	}
 }
 
 .region:after {
@@ -239,10 +243,6 @@ a img {
 	font-size: 0;
 	display: block;
 	clear: both;
-}
-
-.reverse.half {
-	float: right;
 }
 
 table {

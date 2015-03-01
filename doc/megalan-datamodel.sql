@@ -29,7 +29,7 @@ CREATE TABLE `Adres` (
   `postcode` varchar(45) DEFAULT NULL,
   `stad` varchar(145) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,6 @@ CREATE TABLE `Adres` (
 
 LOCK TABLES `Adres` WRITE;
 /*!40000 ALTER TABLE `Adres` DISABLE KEYS */;
-INSERT INTO `Adres` VALUES (8,'Teststraat','23','1111AB','Teststad');
 /*!40000 ALTER TABLE `Adres` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +57,7 @@ CREATE TABLE `Bestelling` (
   KEY `bestellingproduct_idx` (`product`),
   CONSTRAINT `bestellingdeelnemer` FOREIGN KEY (`deelnemer`) REFERENCES `Deelnemer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `bestellingproduct` FOREIGN KEY (`product`) REFERENCES `Product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +66,6 @@ CREATE TABLE `Bestelling` (
 
 LOCK TABLES `Bestelling` WRITE;
 /*!40000 ALTER TABLE `Bestelling` DISABLE KEYS */;
-INSERT INTO `Bestelling` VALUES (53,17,1),(54,17,5),(55,17,6),(56,17,8),(57,17,12);
 /*!40000 ALTER TABLE `Bestelling` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,11 +89,11 @@ CREATE TABLE `Deelnemer` (
   KEY `deelnemeradres_idx` (`adres`),
   KEY `deelnemerrekening_idx` (`rekening`),
   KEY `deelnemersessie_idx` (`sessie`),
-  CONSTRAINT `deelnemersessie` FOREIGN KEY (`sessie`) REFERENCES `Sessie` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `deelnemeradres` FOREIGN KEY (`adres`) REFERENCES `Adres` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `deelnemerpersoon` FOREIGN KEY (`persoon`) REFERENCES `Persoon` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `deelnemerrekening` FOREIGN KEY (`rekening`) REFERENCES `Rekening` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+  CONSTRAINT `deelnemerrekening` FOREIGN KEY (`rekening`) REFERENCES `Rekening` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `deelnemersessie` FOREIGN KEY (`sessie`) REFERENCES `Sessie` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +102,6 @@ CREATE TABLE `Deelnemer` (
 
 LOCK TABLES `Deelnemer` WRITE;
 /*!40000 ALTER TABLE `Deelnemer` DISABLE KEYS */;
-INSERT INTO `Deelnemer` VALUES (17,14,8,3,'Testing',NULL,'');
 /*!40000 ALTER TABLE `Deelnemer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +119,7 @@ CREATE TABLE `Persoon` (
   `achternaam` varchar(145) DEFAULT NULL,
   `email` varchar(145) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +128,6 @@ CREATE TABLE `Persoon` (
 
 LOCK TABLES `Persoon` WRITE;
 /*!40000 ALTER TABLE `Persoon` DISABLE KEYS */;
-INSERT INTO `Persoon` VALUES (14,'Test','van','Inschrijving','teh@borreh.nl');
 /*!40000 ALTER TABLE `Persoon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,6 +145,7 @@ CREATE TABLE `Product` (
   `naam` int(11) DEFAULT NULL,
   `minpp` int(11) DEFAULT NULL,
   `maxpp` int(11) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `productcategorie_idx` (`categorie`),
   KEY `productnaam_idx` (`naam`),
@@ -163,7 +160,7 @@ CREATE TABLE `Product` (
 
 LOCK TABLES `Product` WRITE;
 /*!40000 ALTER TABLE `Product` DISABLE KEYS */;
-INSERT INTO `Product` VALUES (1,-5.0000,1,1,0,1),(2,-5.0000,1,2,0,1),(3,-5.0000,1,3,0,1),(4,-5.0000,1,4,0,1),(5,6.0000,2,5,0,1),(6,6.0000,2,6,0,1),(7,4.0000,2,7,0,1),(8,5.0000,3,8,0,1),(9,0.0000,4,9,0,10),(11,0.0000,3,11,0,1),(12,0.0000,4,15,0,1),(13,0.0000,4,16,0,1),(14,0.0000,4,17,0,1);
+INSERT INTO `Product` VALUES (1,NULL,1,1,0,1,20),(2,NULL,1,2,0,1,20),(3,NULL,1,3,0,1,20),(4,NULL,1,4,0,1,20),(5,NULL,2,5,0,1,NULL),(6,NULL,2,6,0,1,NULL),(7,NULL,2,7,0,1,NULL),(8,5.0000,3,8,0,1,NULL),(9,NULL,4,9,0,10,NULL),(11,NULL,3,11,0,1,NULL),(12,NULL,4,15,0,1,NULL),(13,NULL,4,16,0,1,NULL),(14,NULL,4,17,0,1,NULL);
 /*!40000 ALTER TABLE `Product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +205,7 @@ CREATE TABLE `Rekening` (
   `plaats` varchar(145) DEFAULT NULL,
   `nummer` varchar(145) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,7 +214,6 @@ CREATE TABLE `Rekening` (
 
 LOCK TABLES `Rekening` WRITE;
 /*!40000 ALTER TABLE `Rekening` DISABLE KEYS */;
-INSERT INTO `Rekening` VALUES (3,'T Est','Testtown','123');
 /*!40000 ALTER TABLE `Rekening` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,7 +229,7 @@ CREATE TABLE `Sessie` (
   `taalcode` varchar(45) DEFAULT NULL,
   `cookie` varchar(4000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -257,6 +253,7 @@ CREATE TABLE `Vertaling` (
   `betekenis` int(11) DEFAULT NULL,
   `inhoud` varchar(145) DEFAULT NULL,
   `taalcode` varchar(45) DEFAULT NULL,
+  `klein` varchar(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `betekenis` (`betekenis`)
 ) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
@@ -268,7 +265,7 @@ CREATE TABLE `Vertaling` (
 
 LOCK TABLES `Vertaling` WRITE;
 /*!40000 ALTER TABLE `Vertaling` DISABLE KEYS */;
-INSERT INTO `Vertaling` VALUES (1,1,'FMF','nl'),(2,2,'CB','nl'),(3,3,'IDUN','nl'),(4,4,'Cover','nl'),(5,5,'Vrijdag','nl'),(6,6,'Zaterdag','nl'),(7,7,'Zondag','nl'),(8,8,'Vervoersservice','nl'),(9,9,'PC','nl'),(10,10,'Extra PC','nl'),(11,11,'Gigabit Dibbs','nl'),(16,1,'FMF','en'),(17,2,'CB','en'),(18,3,'IDUN','en'),(19,4,'Cover','en'),(20,5,'Friday','en'),(21,6,'Saturday','en'),(22,7,'Sunday','en'),(23,8,'PC Transport','en'),(24,9,'Computer','en'),(25,10,'Additional Computer','en'),(26,11,'Dibbs on Gigabit network','en'),(31,12,'Lid van','nl'),(32,12,'Member of','en'),(33,13,'Aanwezig op','nl'),(34,13,'Present on','en'),(35,14,'Logistiek:','nl'),(36,14,'Logistics:','en'),(37,15,'Laptop','nl'),(38,15,'Laptop','en'),(39,16,'Server','nl'),(40,16,'Server','en'),(41,17,'Console and TV','en'),(42,17,'Spelcomputer en TV','nl'),(43,18,'Hardware:','nl'),(44,18,'Hardware:','en');
+INSERT INTO `Vertaling` VALUES (1,1,'FMF','nl','FMF'),(2,2,'CB','nl','CB'),(3,3,'IDUN','nl','IDUN'),(4,4,'Cover','nl','COVR'),(5,5,'Vrijdag','nl',NULL),(6,6,'Zaterdag','nl',NULL),(7,7,'Zondag','nl',NULL),(8,8,'Vervoersservice','nl',NULL),(9,9,'PC','nl',NULL),(10,10,'Extra PC','nl',NULL),(11,11,'Gigabit Dibbs','nl',NULL),(16,1,'FMF','en','FMF'),(17,2,'CB','en','CB'),(18,3,'IDUN','en','IDUN'),(19,4,'Cover','en','COVR'),(20,5,'Friday','en',NULL),(21,6,'Saturday','en',NULL),(22,7,'Sunday','en',NULL),(23,8,'PC Transport','en',NULL),(24,9,'Computer','en',NULL),(25,10,'Additional Computer','en',NULL),(26,11,'Dibbs on Gigabit network','en',NULL),(31,12,'Lid van','nl',NULL),(32,12,'Member of','en',NULL),(33,13,'Aanwezig op','nl',NULL),(34,13,'Present on','en',NULL),(35,14,'Logistiek:','nl',NULL),(36,14,'Logistics:','en',NULL),(37,15,'Laptop','nl',NULL),(38,15,'Laptop','en',NULL),(39,16,'Server','nl',NULL),(40,16,'Server','en',NULL),(41,17,'Console and TV','en',NULL),(42,17,'Spelcomputer en TV','nl',NULL),(43,18,'Hardware:','nl',NULL),(44,18,'Hardware:','en',NULL);
 /*!40000 ALTER TABLE `Vertaling` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -281,4 +278,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-22 19:13:19
+-- Dump completed on 2015-03-01 20:51:58

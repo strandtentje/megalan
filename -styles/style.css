@@ -25,6 +25,40 @@ h1, h2, h3, h4 {
 	color: {% foreground %};
 }
 
+.region .epicbutton:not(div) {
+	background: url('/static/patterns/redbutton.png');
+	font-family: 'MegaMan 2 Regular', serif;
+	font-size: 24px;
+	width: 320px;
+	height: 96px;
+	line-height: 96px;
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	text-decoration: none;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+.region .epicbutton:not(div):hover {
+	animation: glowy 0.3s;
+	animation-iteration-count: infinite;
+	-webkit-animation: glowy 0.3s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes glowy {
+	0% { color: white; }
+	100% { color: yellow;}
+}
+
+@-webkit-keyframes glowy {
+	0% { color: white; }
+	100% { color: yellow;}
+}
+
 a {
 	color: lime;
 }
@@ -99,7 +133,7 @@ p, form, table, .blok, .regel, ul {
 
 
 .footer.region {
-	padding-bottom: 0;
+	padding-bottom: 60px;
 	margin-bottom: 0;
 	margin-top: 8ex;
 }
@@ -110,7 +144,7 @@ p, form, table, .blok, .regel, ul {
 
 .head p.subtitle { 
 	position: relative;
-	top: 4.5ex;
+	top: 3ex;
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
@@ -162,7 +196,7 @@ p.subtitle {
 	width: 70%;
 	padding: 0 15% 0;
 	position: relative;
-	top: 10ex;
+	top: 5ex;
 }
 
 .head ~ .region {
@@ -258,9 +292,15 @@ input:focus {
 .product input.option:hover {
 	background: rgba(0,255,255,0.2);
 	animation: glow 0.1s;
+	-webkit-animation: glow 0.1s;
 }
 
 @keyframes glow {
+	from { background: none; }
+	to { background: rgba(0,255,255,0.2); }
+}
+
+@-webkit-keyframes glow {
 	from { background: none; }
 	to { background: rgba(0,255,255,0.2); }
 }
@@ -299,6 +339,8 @@ input:focus {
 	color: #0f0;
 	animation: pulse 0.9s;
 	animation-iteration-count: infinite;
+	-webkit-animation: pulse 0.9s;
+	-webkit-animation-iteration-count: infinite;
 }
 
 @keyframes pulse {
@@ -307,27 +349,191 @@ input:focus {
 	100% { color: #0ff; }
 }
 
+@-webkit-keyframes pulse {
+	0% { color: #0ff; }
+	50% { color: #0f0;}
+	100% { color: #0ff; }
+}
+
 .navigation {
 	position: fixed;
-	text-align: right;
+	text-align: center;
 	line-height: 200%;
 	z-index: 20;
+	margin-left: auto;
+	margin-right: auto;
 	left: 0;
 	right: 0;
+	bottom: 0;
+	width: 900px;	
+	border: solid 3px #5c5c5c;
+	border-bottom: none;
 }
 
 .navigation a {
-	color: {% accent %};
-	padding: 0 1em;
+	color: yellow;
 	text-decoration: none;
-	color: {% accent %};
 }
 
-.navigation a:hover {
-	text-decoration: underline;	
+.navigation {
+	background: url('/static/patterns/flufflybar.png') repeat-x;
+	height: 60px
 }
 
 .navigation a.logo {
+	background: #7c7c7c;
+	color: #900;
+	width: 156px;
+	animation: logo 0.6s;
+	animation-iteration-count: infinite;
+	-webkit-animation: logo 0.6s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes logo {
+	0% { color: #f00; }
+	25% { color: #d00; }
+	50% { color: #f00; }
+	100% { color: #f00; }
+}
+
+@-webkit-keyframes logo {
+	0% { color: #f00; }
+	25% { color: #d00; }
+	50% { color: #f00; }
+	100% { color: #f00; }
+}
+
+.navigation a.logo:before {
+	content: ' ';
+	font-size: 0;
+	display: block;
+	position: absolute;
+	top: -3px;
+	left: -3px;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;	
+	border: 3px solid #9c9c9c;
+	border-bottom: none;
+	border-right: none;
+}
+
+.navigation a {
+	position: relative;
 	float: left;
-	font-weight: bold;
+	line-height: 36px;
+	vertical-align: middle;
+	width: 156px;
+	display: block;
+	font-family: 'MegaMan 2 Regular', serif;
+	margin: 9px;
+	font-size: 20px;
+	background-color: black;
+	border: 3px solid #5c5c5c;
+}
+
+.navigation a.critical:not(.fucking) {
+	background-color: #500;
+	animation: crit 0.6s;
+	animation-iteration-count: infinite;
+	-webkit-animation: crit 0.6s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes crit {
+	0% { background-color: #500; }
+	50% { background-color: black; }
+	100% { background-color: #500; }
+}
+
+@-webkit-keyframes crit {
+	0% { background-color: #500; }
+	50% { background-color: black; }
+	100% { background-color: #500; }
+}
+
+.navigation a.extra.critical:not(.fucking) {
+	background-color: #800;
+	animation: ecrit 0.3s;
+	animation-iteration-count: infinite;
+	-webkit-animation: ecrit 0.3s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes ecrit {
+	0% { color: #800; }
+	50% { color: red; }
+	100% { color: #800; }
+}
+
+@-webkit-keyframes ecrit {
+	0% { color: #800; }
+	50% { color: red; }
+	100% { color: #800; }
+}
+
+.navigation a.extra.fucking.critical {
+	background-color: #333;
+	color: #888;
+}
+
+.footer {
+	position: fixed;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+	z-index: 15;
+	border: solid 3px #5c5c5c;
+	border-bottom: none;
+	background: gray;
+}
+
+.navigation:hover ~ .footer {
+	animation: popup 0.4s;
+	-webkit-animation: popup 0.4s;
+	bottom: 60px;
+}
+
+.footer:hover {
+	bottom: 60px;
+}
+
+@keyframes popup {
+	0% { bottom: 0px; }	
+	100% { bottom: 60px; }
+}
+
+@-webkit-keyframes popup {
+	0% { bottom: 0px; }	
+	100% { bottom: 60px; }
+}
+
+.footer p {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.cancel {
+	text-align: center;
+}
+
+.cancel label {
+	display: inline;
+}
+
+.cancel input {
+	width: auto;
+}
+
+.finished + .abort {
+	display: none;
+}
+
+.abort.region {
+	margin-bottom: 1cm;
 }

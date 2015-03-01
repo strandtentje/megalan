@@ -3,7 +3,7 @@
 	<h1>Address information</h1>
 	<form method="post" action="/register">
 		<label for="straat">Street:</label>
-		<input type="text" name="straat" id="straat" value="{% straat %}">
+		<input autofocus="autofocus" type="text" name="straat" id="straat" value="{% straat %}">
 		{% straat_failure %}
 
 		<label for="pandnummer">

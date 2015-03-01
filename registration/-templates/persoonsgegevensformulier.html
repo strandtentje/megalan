@@ -5,7 +5,7 @@
 	<h1>Personal contact information</h1>
 	<form method="post" action="/register">
 		<label for="voornaam">First name:</label>
-		<input type="text" name="voornaam" id="voornaam" value="{% voornaam %}">
+		<input autofocus="autofocus" type="text" name="voornaam" id="voornaam" value="{% voornaam %}">
 		{% voornaam_failure %}
 
 		<label for="tussenvoegsel">

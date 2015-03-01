@@ -114,12 +114,6 @@ p, form, table, .blok, .regel, ul {
 	padding-top: 5ex;
 }
 
-.half img {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-	padding: 4ex 0;
-}
 
 .region>*:not(div) {
 	position: relative;
@@ -209,9 +203,18 @@ p.subtitle {
 
 }
 
-.half {
-	float: left;
-	width: 50%;
+@media(min-width: 900px) {
+	.half {
+		float: left;
+		width: 50%;
+	}
+}
+
+.half img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	padding: 4ex 0;
 }
 
 .region:after {
@@ -250,12 +253,27 @@ label {
 
 input, textarea {
 	display: inline;
-	width: 60%;
+	width: 100%;
 	font-size: 14pt;
 	background: black;
 	color: #0ff;
 	border: solid 5px #055;
 	padding: 5px;
+}
+
+.error {
+	position: relative;
+	top: -7ex;
+}
+
+@media(min-width: 900px) {
+	input, textarea {
+		width: 60%;
+	}
+
+	.error {
+		top: 0;
+	}
 }
 
 input:hover {
@@ -330,9 +348,15 @@ input:focus {
 }
 
 .subtitle {
-	font-size: 130%;
+	font-size: 100%;
 	text-align: center;
 	color: {% accent %};
+}
+
+@media(min-width: 900px) {
+	.subtitle {
+		font-size: 130%;
+	}	
 }
 
 .subtitle a {
@@ -356,28 +380,43 @@ input:focus {
 }
 
 .navigation {
-	position: fixed;
+	position: relative;
+	z-index: 10;
 	text-align: center;
 	line-height: 200%;
 	z-index: 20;
 	margin-left: auto;
 	margin-right: auto;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 900px;	
-	border: solid 3px #5c5c5c;
-	border-bottom: none;
+	border-bottom: solid 3px #5c5c5c;	
+	width: 100%;
+	background: url('/static/patterns/flufflybar.png');
+}
+
+.navigation:after {
+	content: '.';
+	display: block;
+	font-size: 0;
+	clear: both;
+	width: 0;
+	height: 0;	
+}
+
+@media (min-width: 900px) {
+	.navigation {			
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 900px;	
+		position: fixed;
+		height: 60px;
+		border: solid 3px #5c5c5c;
+		border-bottom: none;
+	}
 }
 
 .navigation a {
 	color: yellow;
 	text-decoration: none;
-}
-
-.navigation {
-	background: url('/static/patterns/flufflybar.png') repeat-x;
-	height: 60px
 }
 
 .navigation a.logo {
@@ -479,37 +518,43 @@ input:focus {
 }
 
 .footer {
-	position: fixed;
-	width: 900px;
-	margin-left: auto;
-	margin-right: auto;
-	left: 0;
-	right: 0;
-	bottom: 0px;
-	z-index: 15;
+	position: relative;
 	border: solid 3px #5c5c5c;
 	border-bottom: none;
 	background: gray;
+	z-index: 15;
 }
 
-.navigation:hover ~ .footer {
-	animation: popup 0.4s;
-	-webkit-animation: popup 0.4s;
-	bottom: 60px;
-}
+@media(min-width: 900px) {
+	.footer {			
+		position: fixed;
+		width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		bottom: 0px;
+	}
 
-.footer:hover {
-	bottom: 60px;
-}
+	.navigation:hover ~ .footer {
+		animation: popup 0.4s;
+		-webkit-animation: popup 0.4s;
+		bottom: 60px;
+	}
 
-@keyframes popup {
-	0% { bottom: 0px; }	
-	100% { bottom: 60px; }
-}
+	.footer:hover {
+		bottom: 60px;
+	}
 
-@-webkit-keyframes popup {
-	0% { bottom: 0px; }	
-	100% { bottom: 60px; }
+	@keyframes popup {
+		0% { bottom: 0px; }	
+		100% { bottom: 60px; }
+	}
+
+	@-webkit-keyframes popup {
+		0% { bottom: 0px; }	
+		100% { bottom: 60px; }
+	}	
 }
 
 .footer p {

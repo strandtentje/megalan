@@ -1,0 +1,13 @@
+<div class="region">
+	<h1>Aborting registration</h1>
+</div>
+<div class="opaque region">
+	<form action="/register/abort" method="post" class="cancel">
+		<label for="confirm">
+			{% confirm_failure %}
+			<input id="confirm" name="confirm" type="checkbox">
+			Clear my registration
+		</label><br>
+		<input type="submit" value="Yep, wipe me out.">
+	</form>
+</div>

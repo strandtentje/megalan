@@ -1,11 +1,12 @@
 SELECT	
 	Vertaling.inhoud full,
-	Vertaling.klein chop,
+	LOWER(Vertaling.klein) chop,
 	GREATEST(0, Product.stock - COUNT(AlleBestellingen.id)) count,
 	CONCAT(		
 		IF (Product.stock < COUNT(AlleBestellingen.id) + 2, "extra ", ""),
 		IF (Product.stock < COUNT(AlleBestellingen.id) + 1, "fucking ", ""),
-		IF (Product.stock < COUNT(AlleBestellingen.id) + 6, "critical", "")) critical
+		IF (Product.stock < COUNT(AlleBestellingen.id) + 6, "critical ", ""),
+		IF (Product.stock < COUNT(AlleBestellingen.id) + 10, "gently", "")) critical
 FROM
 	Product
 	JOIN

@@ -531,6 +531,60 @@ input:focus {
 	-webkit-animation-iteration-count: infinite;
 }
 
+a.counter {
+	position: relative;
+}
+
+a.counter span {
+	position: relative;
+	z-index: 1;
+}
+
+a.counter .bar {
+	font-size: 0;
+	border: 3px solid #4c4c4c;
+	border-top: 3px solid #6c6c6c;
+	border-left: 3px solid #6c6c6c;
+	width: 10%;
+	height: 100%;
+	position: absolute;
+	background: url('/static/patterns/stripes3.png');
+    box-sizing: border-box;
+    z-index: 0;
+}
+
+a.fmf.counter .bar {
+	background-color: #888;
+}
+
+a.cb.counter .bar {
+	background-color: #444;
+}
+
+a.idun.counter .bar {
+	background-color: #007;
+}
+
+a.covr.counter .bar {
+	background-color: #500;
+}
+
+a.gently .bar {
+	width: 40%;
+}
+
+a.critical .bar {
+	width: 65%;
+}
+
+a.extra .bar {
+	width: 85%;
+}
+
+a.fucking .bar {
+	width: 90%;
+}
+
 @keyframes ecrit {
 	0% { color: #800; }
 	50% { color: red; }
